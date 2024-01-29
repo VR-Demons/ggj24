@@ -1,6 +1,7 @@
 ﻿using System;
 using HurricaneVR.Framework.Components;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace HurricaneVR.Framework.Weapons
 {
@@ -24,7 +25,18 @@ namespace HurricaneVR.Framework.Weapons
         public int CurrentCount;
 
         public bool HasAmmo => CurrentCount > 0;
-        public bool IsEmpty => CurrentCount <= 0;
+        public bool IsEmpty
+        {
+            get
+            {
+                if(CurrentCount <= 0)
+                    OnEmpty.Invoke();
+                return CurrentCount <= 0;
+            }
+        }
+
+        public UnityEvent OnEmpty;
+        public UnityEvent OnReset;
 
         protected virtual void Awake()
         {
@@ -55,12 +67,21 @@ namespace HurricaneVR.Framework.Weapons
         {
             CurrentCount--;
             if (CurrentCount < 0)
+            {
                 CurrentCount = 0;
+            }
+
         }
 
         public virtual void StartDestroy()
         {
             Destroy(gameObject, EmptyDestroyTimer);
+        }
+
+        public void Reset()
+        {
+            CurrentCount = MaxCount;
+            OnReset.Invoke();
         }
     }
 }
