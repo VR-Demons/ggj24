@@ -4,6 +4,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Events;
+using UnityEngine.Rendering;
+using UnityEngine.Rendering.Universal;
 using Random = UnityEngine.Random;
 
 public class Enemy : MonoBehaviour
@@ -12,6 +15,7 @@ public class Enemy : MonoBehaviour
     private Transform player;
     private Vector3 startPosition;
     private bool dead = false;
+    public UnityEvent OnDead;
 
     [SerializeField] private float closeness = 2f;
     [SerializeField] private float chaseRange = 10f;
@@ -19,6 +23,9 @@ public class Enemy : MonoBehaviour
 
     [SerializeField]
     private List<GameObject> faces;
+
+    [SerializeField]
+    private GameObject disappearParticle;
 
     private void Start()
     {
@@ -58,7 +65,7 @@ public class Enemy : MonoBehaviour
 
     private void Patrol()
     {
-        agent.destination = startPosition;
+        //agent.destination = startPosition;
     }
     private void OnCollisionEnter(Collision collision)
     {
@@ -68,6 +75,7 @@ public class Enemy : MonoBehaviour
             faces[Random.Range(0, faces.Count)].SetActive(true);
             dead = true;
             StartCoroutine(Disappear());
+            OnDead.Invoke();
         }
 
     }
@@ -75,6 +83,7 @@ public class Enemy : MonoBehaviour
     private IEnumerator Disappear()
     {
         yield return new WaitForSeconds(10);
+        GameObject.Instantiate(disappearParticle, gameObject.transform.position, Quaternion.identity);
         Destroy(gameObject);
     }
 }

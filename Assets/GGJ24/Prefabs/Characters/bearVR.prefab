@@ -599,17 +599,17 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 5f592faf7ae59594fabca8cfb8e0f3f7,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5.774688
+      value: -8.79
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 5f592faf7ae59594fabca8cfb8e0f3f7,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.00000011920929
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 5f592faf7ae59594fabca8cfb8e0f3f7,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 3.3534412
+      value: 14.58
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 5f592faf7ae59594fabca8cfb8e0f3f7,
         type: 3}
@@ -619,17 +619,17 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 5f592faf7ae59594fabca8cfb8e0f3f7,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 5f592faf7ae59594fabca8cfb8e0f3f7,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 5f592faf7ae59594fabca8cfb8e0f3f7,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 5f592faf7ae59594fabca8cfb8e0f3f7,
         type: 3}
@@ -1295,7 +1295,7 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 1
   m_Height: 1.8649081
   m_Direction: 1
   m_Center: {x: 0, y: 0.93561727, z: 0}
@@ -1338,8 +1338,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51ee5ecb9a204bf4da544e4e3c4ce000, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  closeness: 2
-  chaseRange: 10
+  closeness: 3
+  chaseRange: 8
   attackRange: 3
   faces:
   - {fileID: 3657084575968830194}
